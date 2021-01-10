@@ -68,7 +68,7 @@ steps:
   - '-c'
   - |
      sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
-     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > environment/spoon-admin/apoon-admin-deploy.yaml
+     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > environment/spoon-admin/spoon-admin-deploy.yaml
 
 # This step pushes the manifest back to hello-cloudbuild-env
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -79,7 +79,7 @@ steps:
   - |
     set -x && \
     cd environment && \
-    git add spoon-admin/apoon-admin-deploy.yaml && \
+    git add spoon-admin/spoon-admin-deploy.yaml && \
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/spoon-admin:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository TheLittleSpoonAdminClient
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
