@@ -2,92 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e28450ee-eec9-4911-9218-ab9904339561" name="Default Changelist" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/assets/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/light-bootstrap-dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/nucleo-icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/nucleo-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/nucleo-icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/nucleo-icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/nucleo-icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/apple-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/default-avatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/face-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/faces/tim_vector.jpe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/full-screen-image-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/loading-bubbles.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/mask.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/new_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/sidebar-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/tim_80x80.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/core/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/core/jquery.3.2.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/core/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/light-bootstrap-dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/plugins/bootstrap-datepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/plugins/bootstrap-notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/plugins/bootstrap-switch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/plugins/chartist.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/plugins/nouislider.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_alerts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_bootstrap-switch.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_chartist.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_checkbox-radio-switch.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_footers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_misc.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_navbars.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_partial-nucleo-icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_sidebar-and-main-panel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_typography.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_chartist.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_labels.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_morphing-buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_navbars.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_social-buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_tabs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_transparency.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/mixins/_vendor-prefixes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/plugins/_animate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/lbd/plugins/_datetime-picker.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sass/light-bootstrap-dashboard.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UserProfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/socketManager/socketManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +65,9 @@
       <option name="presentableId" value="Default" />
       <updated>1608580417799</updated>
       <workItem from="1608580420097" duration="909000" />
-      <workItem from="1608581411203" duration="3854000" />
+      <workItem from="1608581411203" duration="4644000" />
+      <workItem from="1610209652774" duration="14000" />
+      <workItem from="1613492632896" duration="766000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1608580669150</created>

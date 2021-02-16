@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class Navbar extends Component {
-    render() {
+function Navbar() {
         return (
             <nav className="navbar navbar-expand-lg " color-on-scroll="500">
                 <div className="container-fluid">
@@ -19,7 +18,6 @@ class Navbar extends Component {
                 </div>
             </nav>
         )
-    }
 }
 
 export default Navbar

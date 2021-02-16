@@ -1,14 +1,25 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import {Link, NavLink} from "react-router-dom";
+import socket from "../socketManager/socketManager"
 
-class Sidebar extends Component {
-    render() {
+function isConnected() {
+    return socket.connected ? "true": "false";
+}
+
+function Sidebar() {
+        useEffect(()=> {
+            console.log(socket)
+        });
+
         return <div className="sidebar">
             <div className="sidebar-wrapper">
                 <div className="logo">
                     <Link to='/' className="simple-text">
                         Simple Dashboard
                     </Link>
+                    <div>
+                        {isConnected()}
+                    </div>
                 </div>
                 <ul className="nav">
                     <li className="nav-item">
@@ -26,7 +37,6 @@ class Sidebar extends Component {
                 </ul>
             </div>
         </div>
-    }
 }
 
 export default Sidebar

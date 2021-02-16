@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import face3 from "../assets/img/faces/face-3.jpg"
 
-class UserProfile extends Component {
-    render() {
+function UserProfile() {
         return (
             <div className="content">
                 <div className="container-fluid">
@@ -47,7 +46,6 @@ class UserProfile extends Component {
                 </div>
             </div>
         )
-    }
 }
 
 export default UserProfile
