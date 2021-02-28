@@ -7,9 +7,6 @@ socket.on('connect', () => {
     console.log("conneceted");
 });
 
-socket.on('connect', () => {
-    console.log("conneceted");
-});
 
 socket.on('disconnect', (reason) => {
     if (reason === 'io server disconnect') {

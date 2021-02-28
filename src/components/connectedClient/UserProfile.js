@@ -1,5 +1,5 @@
 import React from 'react'
-import ConnectedClient from "./ConnectedClient/ConnectedClient";
+import ConnectedClient from "./ConnectedClient";
 
 function UserProfile() {
         return (

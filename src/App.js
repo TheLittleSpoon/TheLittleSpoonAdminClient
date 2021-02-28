@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Sidebar from "./components/Sidebar";
-import Main from "./components/Main";
+import Sidebar from "./components/dashboard/Sidebar";
+import Main from "./components/dashboard/Main";
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 

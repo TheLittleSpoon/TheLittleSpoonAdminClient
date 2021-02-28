@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import GraphForAdmin from "./graph/GraphForAdmin";
+import GraphForAdmin from "../graph/GraphForAdmin";
 
 function Dashboard() {
         const [state, setState] = useState({
