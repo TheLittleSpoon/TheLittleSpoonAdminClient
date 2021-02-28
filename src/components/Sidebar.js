@@ -3,7 +3,7 @@ import {Link, NavLink} from "react-router-dom";
 import socket from "../socketManager/socketManager"
 
 function isConnected() {
-    return socket.connected ? "true": "false";
+    return socket.connected ? "conneceted": "not conneceted";
 }
 
 function Sidebar() {
@@ -15,23 +15,23 @@ function Sidebar() {
             <div className="sidebar-wrapper">
                 <div className="logo">
                     <Link to='/' className="simple-text">
-                        Simple Dashboard
+                       Little Spoon Admin
                     </Link>
-                    <div>
+                    <div className="connection">
                         {isConnected()}
                     </div>
                 </div>
                 <ul className="nav">
                     <li className="nav-item">
-                        <NavLink className="nav-link" to='/dashboard'>
+                        <NavLink className="nav-link" to='/GraphData'>
                             <i className="nc-icon nc-chart-pie-35"></i>
-                            <p>Dashboard</p>
+                            <p>Graph Data</p>
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to='/profile'>
+                        <NavLink className="nav-link" to='/connectedClients'>
                             <i className="nc-icon nc-circle-09"></i>
-                            <p>User Profile</p>
+                            <p>Connected clients</p>
                         </NavLink>
                     </li>
                 </ul>

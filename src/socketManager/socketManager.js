@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 
-let socket = io().connect('localhost:8080');
+let socket = io().connect('http://35.224.144.255:3000/');
 
 
 socket.on('connect', () => {

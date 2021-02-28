@@ -9,9 +9,9 @@ function Main() {
         return <div className="main-panel">
                 <Navbar />
                 <Switch>
-                    <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/profile" component={UserProfile} />
-                    <Redirect from='*' to='/dashboard' />
+                    <Route path="/GraphData" component={Dashboard} />
+                    <Route path="/connectedClients" component={UserProfile} />
+                    <Redirect from='*' to='/GraphData' />
                 </Switch>
                 <Footer />
         </div>
