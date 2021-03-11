@@ -1,5 +1,6 @@
 import * as d3 from "d3";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import configJson from "../../assets/config.json";
 
 function GraphForAdmin(props) {
     let svgRecipies;
@@ -16,7 +17,7 @@ function GraphForAdmin(props) {
                 .append("svg")
                 .attr("width", w)
                 .attr("height", h)
-                .attr("class","recipesGraph")
+                .attr("class", "recipesGraph")
                 .style("margin-left", 100);
 
 
@@ -70,10 +71,42 @@ function GraphForAdmin(props) {
         }
     }
 
+    const [recipesPerUser, setRecipesPerUser] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+
     useEffect(() => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: 'admin@gmail.com',
+                password: '$2b$10$Vk8sgtY02VNsZVn9xmmq1uqEOZ/i30lqerkusEA6LgNzkFRz2Aahe'})
+        };
+        fetch(configJson.SERVER_URL + "api/auth", requestOptions)
+            // .then(res => {
+            //     res
+            // })
+            .then(
+                (result) => {
+                    setIsLoaded(true);
+
+                    // fetch(configJson.SERVER_URL + "api/users")
+                    //     .then(res => res.json())
+                    //     .then((resultUsers) => {
+                    //         alert(resultUsers)
+                    //     })
+                    // let authors = result.map(res => res.author.name);
+                    // setRecipesPerUser(authors);
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    setIsLoaded(true);
+                }
+            )
         createRecipesGraph();
         createClientsGraph();
-    })
+    }, []);
 
     return (
         <div>

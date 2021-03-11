@@ -13,9 +13,18 @@ function Sidebar() {
             setConnected(true);
         });
 
+        socket.on('joined', (users) => {
+            console.log(users)
+        })
+
+        socket.on('disconnectedUser', (users) => {
+            console.log(users)
+        })
+
 
         socket.on('disconnect', (reason) => {
             setConnected(false);
+
             if (reason === 'io server disconnect') {
                 // the disconnection was initiated by the server, you need to reconnect manually
                 socket.connect();

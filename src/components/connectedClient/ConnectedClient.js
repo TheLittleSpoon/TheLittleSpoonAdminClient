@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import face3 from "../../assets/img/faces/face-3.jpg"
+import configJson from "../../assets/config.json";
 
-export default function ConnectedClient() {
+export default function ConnectedClient(props) {
     return (
         <div className="card card-user">
             <div className="card-image">
@@ -13,29 +14,23 @@ export default function ConnectedClient() {
             <div className="card-body">
                 <div className="author">
                     <img className="avatar border-gray" src={face3} alt="..."/>
-                    <h5 className="title">Mike Andrew</h5>
+                    <h5 className="title">{props.user.name}</h5>
                     <p className="description">
-                        michael24
+                        {props.user.email}
                     </p>
                 </div>
                 <p className="description text-center">
-                    "Lamborghini Mercy
-                    <br/> Your chick she so thirsty
-                    <br/> I'm in that two seat Lambo"
+                    {props.user.password}
                 </p>
             </div>
             <hr/>
             <div className="button-container mr-auto ml-auto">
-                <button className="btn btn-simple btn-link btn-icon">
-                    <i className="fa fa-facebook-square"></i>
-                </button>
-                <button className="btn btn-simple btn-link btn-icon">
-                    <i className="fa fa-twitter"></i>
-                </button>
-                <button className="btn btn-simple btn-link btn-icon">
-                    <i className="fa fa-google-plus-square"></i>
-                </button>
+                {props.user.isAdmin ? "Admin": "not Admin"}
+
+                {"  connected  "}
+
             </div>
+
         </div>
     )
 }

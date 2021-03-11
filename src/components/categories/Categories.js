@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import configJson from "../../assets/config.json";
+import css from "./Categories.css";
 
 export default function Categories(){
     const [error, setError] = useState(null);
@@ -23,7 +24,7 @@ export default function Categories(){
                 // exceptions from actual bugs in components.
                 (error) => {
                     setIsLoaded(true);
-                    setCategories([{id: 1,name: "Italian"},{ id: 2, name: "Junk"},{ id: 3, name: "Burgers"}])
+                    setCategories([{id: 1,catName: "Italian"},{ id: 2, catName: "Junk"},{ id: 3, catName: "Burgers"}])
                 }
             )
     }, [])
@@ -41,6 +42,14 @@ export default function Categories(){
         event.preventDefault();
     }
 
+    function handleDelete(event) {
+        let place = event.target.parentElement.ariaLabel;
+        let newItems = categories;
+        newItems.splice(parseInt(place) - 1, 1);
+        setCategories([...newItems]);
+        event.preventDefault();
+    }
+
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -49,8 +58,11 @@ export default function Categories(){
         return (
             <ul>
                 {categories.map(item => (
-                    <li key={item.id}>
-                        {item.name}
+                    <li key={item.id} aria-label={item.id} value={item.catName}>
+                        {item.catName}
+                        <div className="deleteCat" onClick={handleDelete}>
+                            X
+                        </div>
                     </li>
                 ))}
                 <li>
@@ -58,6 +70,7 @@ export default function Categories(){
                         <label>
                             Name:
                             <input type="text" value={value} onChange={handleChanged} />
+
                         </label>
                         <input type="submit" value="Submit" />
                     </form>
