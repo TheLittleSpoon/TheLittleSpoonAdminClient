@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e28450ee-eec9-4911-9218-ab9904339561" name="Default Changelist" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/socketManager/socketManager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/recipes/Recipes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/connectedClient/ConnectedClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/connectedClient/ConnectedClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/Sidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +62,7 @@
       <workItem from="1608581411203" duration="4644000" />
       <workItem from="1610209652774" duration="14000" />
       <workItem from="1613492632896" duration="766000" />
+      <workItem from="1615561360977" duration="111000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1608580669150</created>

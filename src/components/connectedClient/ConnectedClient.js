@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
-import face3 from "../../assets/img/faces/face-3.jpg"
+import face3 from "../../assets/img/default-avatar.png"
 import configJson from "../../assets/config.json";
+import {IconButton} from "@material-ui/core";
+import {Delete} from "@material-ui/icons";
 
 export default function ConnectedClient(props) {
     return (
@@ -29,6 +31,9 @@ export default function ConnectedClient(props) {
 
                 {"  connected  "}
 
+                <IconButton>
+                    <Delete></Delete>
+                </IconButton>
             </div>
 
         </div>

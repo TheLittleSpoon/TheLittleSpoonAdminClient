@@ -21,7 +21,6 @@ function Sidebar() {
             console.log(users)
         })
 
-
         socket.on('disconnect', (reason) => {
             setConnected(false);
 
@@ -47,12 +46,6 @@ function Sidebar() {
             </div>
             <ul className="nav">
                 <li className="nav-item">
-                    <NavLink className="nav-link" to='/GraphData'>
-                        <i className="nc-icon nc-chart-pie-35"></i>
-                        <p>Graph Data</p>
-                    </NavLink>
-                </li>
-                <li className="nav-item">
                     <NavLink className="nav-link" to='/connectedClients'>
                         <i className="nc-icon nc-circle-09"></i>
                         <p>Connected clients</p>
@@ -62,6 +55,18 @@ function Sidebar() {
                     <NavLink className="nav-link" to='/categories'>
                         <i className="nc-icon nc-circle-09"></i>
                         <p>Categories</p>
+                    </NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to='/recipes'>
+                        <i className="nc-icon nc-circle-09"></i>
+                        <p>Recipes</p>
+                    </NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to='/GraphData'>
+                        <i className="nc-icon nc-chart-pie-35"></i>
+                        <p>Graph Data</p>
                     </NavLink>
                 </li>
             </ul>

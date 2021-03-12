@@ -1,52 +1,108 @@
-import {useEffect, useState} from "react";
+import {Component, useEffect, useState} from "react";
 import configJson from "../../assets/config.json";
 import css from "./Categories.css";
+import {
+    Button,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemSecondaryAction,
+    ListItemText,
+    TextField
+} from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
+import {Add, Delete, Fastfood, Folder} from "@material-ui/icons";
 
-export default function Categories(){
+export default function Categories() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [categories, setCategories] = useState([]);
     const [value, setValue] = useState("");
+    const [dense, setDense] = useState(false);
 
 // Note: the empty deps array [] means
 // this useEffect will run once
 // similar to componentDidMount()
     useEffect(() => {
-        fetch(configJson.SERVER_URL + "/categories")
+        fetch(configJson.SERVER_URL + "api/categories")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
                     setCategories(result);
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
                 (error) => {
-                    setIsLoaded(true);
-                    setCategories([{id: 1,catName: "Italian"},{ id: 2, catName: "Junk"},{ id: 3, catName: "Burgers"}])
+                    setIsLoaded(false);
                 }
             )
-    }, [])
+    }, [Categories])
 
     function handleChanged(event) {
         setValue(event.target.value);
     }
 
+    function addToServer(cat) {
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name: cat.name})
+        };
+        fetch(configJson.SERVER_URL + "api/categories", requestOptions)
+            // .then(res => {
+            //     res
+            // })
+            .then(
+                (result) => {
+                },
+                (error) => {
+                    alert("error")
+                }
+            )
+    }
+
     function handleSubmit(event) {
         alert('A name was submitted: ' + value);
         let newItems = categories;
-        newItems.push({id: categories.length + 1, catName: value});
+        let cat = {name: value};
+        newItems.push(cat);
         setCategories(newItems);
         setValue("");
+        addToServer(cat)
         event.preventDefault();
     }
 
-    function handleDelete(event) {
-        let place = event.target.parentElement.ariaLabel;
+    function deleteFromServer(cat) {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({_id: cat._id})
+        };
+        fetch(configJson.SERVER_URL + "api/categories", requestOptions)
+            .then(
+                (result) => {
+                    alert("saved")
+                },
+                (error) => {
+                    alert("error")
+                }
+            )
+    }
+
+    function handleDelete(event, cat) {
         let newItems = categories;
-        newItems.splice(parseInt(place) - 1, 1);
-        setCategories([...newItems]);
+        let place  = -1;
+        newItems.forEach((item, index) => {
+            if (item.name === cat.name) {
+                place = index;
+                return;
+            }
+        })
+        if (place !== -1) {
+            newItems.splice(place, 1);
+            setCategories([...newItems]);
+            deleteFromServer(cat)
+        }
         event.preventDefault();
     }
 
@@ -56,27 +112,42 @@ export default function Categories(){
         return <div>Loading...</div>;
     } else {
         return (
-            <ul>
-                {categories.map(item => (
-                    <li key={item.id} aria-label={item.id} value={item.catName}>
-                        {item.catName}
-                        <div className="deleteCat" onClick={handleDelete}>
-                            X
-                        </div>
-                    </li>
+            <List dense={dense}>
+                { categories.map(item => (
+                    <ListItem>
+                        <ListItemAvatar>
+                            <Avatar>
+                                <Fastfood/>
+                            </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                            primary={item.name}
+                        />
+                        <ListItemSecondaryAction>
+                            <IconButton edge="end" aria-label="delete" onClick={(event)=> {handleDelete(event, item)}}>
+                                <Delete/>
+                            </IconButton>
+                        </ListItemSecondaryAction>
+                    </ListItem>
                 ))}
-                <li>
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            Name:
-                            <input type="text" value={value} onChange={handleChanged} />
-
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
-                </li>
-            </ul>
-
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <Add />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText>
+                        <form onSubmit={handleSubmit}>
+                        <TextField id="standard-basic" label="Add Category" value={value} onChange={handleChanged} />
+                            <Button variant="contained" color="primary" type="submit">
+                                <IconButton>
+                                    <Add />
+                                </IconButton>
+                            </Button>
+                        </form>
+                    </ListItemText>
+                </ListItem>
+            </List>
         );
     }
 }
