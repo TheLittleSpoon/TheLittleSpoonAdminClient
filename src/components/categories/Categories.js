@@ -79,9 +79,8 @@ export default function Categories() {
             headers: {'Content-Type': 'application/json',
                       'x-auth-token': localStorage.getItem('token')
             },
-            body: JSON.stringify({_id: cat._id})
         };
-        fetch(configJson.SERVER_URL + "api/categories", requestOptions)
+        fetch(configJson.SERVER_URL + "api/categories/" + cat._id, requestOptions)
             .then(
                 (result) => {
                 },

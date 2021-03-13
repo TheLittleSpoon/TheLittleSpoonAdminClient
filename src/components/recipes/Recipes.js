@@ -78,10 +78,10 @@ export default function Recipes() {
     function deleteFromServer(recipe) {
         const requestOptions = {
             method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({_id: recipe._id})
+            headers: {'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('token')},
         };
-        fetch(configJson.SERVER_URL + "api/recipes", requestOptions)
+        fetch(configJson.SERVER_URL + "api/recipes/"+ recipe._id, requestOptions)
             .then(
                 (result) => {
                     alert("saved")

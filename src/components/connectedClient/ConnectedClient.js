@@ -26,9 +26,6 @@ export default function ConnectedClient(props) {
                         {props.user.email}
                     </p>
                 </div>
-                <p className="description text-center">
-                    {props.user.password}
-                </p>
             </div>
             <hr/>
             <div className="button-container mr-auto ml-auto">

@@ -132,7 +132,7 @@ function UserProfile(props) {
                     </FormGroup>
                     <TextField
                         id="standard-number"
-                        label="Number"
+                        label="Recipe Number"
                         type="number"
                         InputLabelProps={{
                             shrink: true,
