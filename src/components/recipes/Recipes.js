@@ -55,7 +55,13 @@ export default function Recipes() {
                     setIsLoaded(true);
                 }
             )
-        fetch(configJson.SERVER_URL + "api/users")
+        let requestOptions = {
+            method: 'GET',
+            headers: {
+                'x-auth-token': localStorage.getItem('token')
+            }
+        };
+        fetch(configJson.SERVER_URL + "api/users", requestOptions)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -121,7 +127,7 @@ export default function Recipes() {
                                     </IconButton>
                                 }
                                 title={recipe.name}
-                                subheader={users.filter(value => value._id === recipe.author)[0].name}
+                                subheader={users.filter(value => value._id === recipe.author)[0] ? users.filter(value => value._id === recipe.author)[0].name : recipe.author}
                             />
                             <CardMedia
                                 className={classes.media}

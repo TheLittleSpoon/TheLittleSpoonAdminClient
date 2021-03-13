@@ -17,7 +17,10 @@ function UserProfile(props) {
     useEffect(() => {
 
         const requestOptions = {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+                'x-auth-token': localStorage.getItem('token')
+            }
         };
         fetch(configJson.SERVER_URL + "api/users", requestOptions)
             .then(res => res.json())

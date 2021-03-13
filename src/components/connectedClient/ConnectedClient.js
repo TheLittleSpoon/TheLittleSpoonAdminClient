@@ -34,8 +34,6 @@ export default function ConnectedClient(props) {
             <div className="button-container mr-auto ml-auto">
                 {props.user.isAdmin ? "Admin": "not Admin"}
 
-                {"  connected  "}
-
                 <IconButton onClick={(event) => deleteFromServer(event, props.user)}>
                     <Delete></Delete>
                 </IconButton>

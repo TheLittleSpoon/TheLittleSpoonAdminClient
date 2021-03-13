@@ -153,7 +153,10 @@ function GraphForAdmin(props) {
 
     function fetchAllUserData() {
         const requestOptions = {
-            method: 'GET'
+            method: 'GET',
+            headers:  {'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('token')
+            },
         };
         return fetch(configJson.SERVER_URL + "api/users", requestOptions)
             .then(res => res.json())
