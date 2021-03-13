@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -12,6 +11,7 @@ import {red} from '@material-ui/core/colors';
 import configJson from "../../assets/config.json";
 import {Delete} from "@material-ui/icons";
 import {Grid} from "@material-ui/core";
+import Pagination from '@material-ui/lab/Pagination';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -108,11 +108,19 @@ export default function Recipes() {
         }
         event.preventDefault();
     }
+    const [page, setPage] = useState(1);
+
+    function handleChangePage(event, value) {
+        setPage(value);
+    }
 
     return (
         <Grid container spacing={1}>
+            <Grid item xs={12}>
+                <Pagination count={Math.ceil(recipes.length / 3)} onChange={handleChangePage} />
+            </Grid>
             {
-                recipes.map(recipe => (
+                recipes.slice(page*3 - 3, page*3).map(recipe => (
                     <Grid item xs={4}>
                         <Card className={classes.root}>
                             <CardHeader
@@ -161,5 +169,6 @@ export default function Recipes() {
                 ))
             }
         </Grid>
+
     );
 }

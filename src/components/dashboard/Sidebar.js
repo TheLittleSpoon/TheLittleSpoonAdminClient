@@ -58,13 +58,13 @@ function Sidebar(props) {
                 </li>
                 <li className="nav-item">
                     <NavLink className="nav-link" to='/categories'>
-                        <i className="nc-icon nc-circle-09"></i>
+                        <i className="nc-icon nc-favourite-28"></i>
                         <p>Categories</p>
                     </NavLink>
                 </li>
                 <li className="nav-item">
                     <NavLink className="nav-link" to='/recipes'>
-                        <i className="nc-icon nc-circle-09"></i>
+                        <i className="nc-icon nc-apple"></i>
                         <p>Recipes</p>
                     </NavLink>
                 </li>
