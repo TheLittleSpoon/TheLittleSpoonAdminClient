@@ -2,9 +2,38 @@ import React, {useEffect, useState} from 'react'
 import {Link, NavLink} from "react-router-dom";
 import io from "socket.io-client";
 import configJson from "../../assets/config.json";
-
+let mySocket = io(configJson.SERVER_URL).connect();
 
 function Sidebar(props) {
+    const [connected, setConnected] = useState(false);
+    const [connectedUsers, setConnectedUsers] = useState(0);
+
+    useEffect(() => {
+        mySocket.on('connect', () => {
+            console.log("conneceted");
+            setConnected(true);
+        });
+
+        mySocket.on('joined', (users) => {
+            setConnectedUsers(users.length);
+        })
+
+        mySocket.on('disconnectedUser', (users) => {
+            setConnectedUsers(users.length);
+        })
+
+        mySocket.on('disconnect', (reason) => {
+            setConnected(false);
+
+            if (reason === 'io server disconnect') {
+                // the disconnection was initiated by the server, you need to reconnect manually
+                mySocket.connect();
+            }
+            // else the socket will automatically try to reconnect
+        });
+    }, [])
+
+
     return <div className="sidebar">
         <div className="sidebar-wrapper">
             <div className="logo">
@@ -13,10 +42,10 @@ function Sidebar(props) {
                 </Link>
                 <center>
                     <div className="connection">
-                        {props.connected ? "Connected To Server" : "Not connected to server"}
+                        {connected ? "Connected To Server" : "Not connected to server"}
                     </div>
                     <div className="connection">
-                        connected users number: {props.connectedUserNumber}
+                        connected users number: {connectedUsers}
                     </div>
                 </center>
             </div>
