@@ -6,6 +6,11 @@ import {IconButton} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
 
 export default function ConnectedClient(props) {
+    function deleteFromServer(event, user) {
+        props.deleteUser(user);
+        event.preventDefault();
+    }
+
     return (
         <div className="card card-user">
             <div className="card-image">
@@ -31,7 +36,7 @@ export default function ConnectedClient(props) {
 
                 {"  connected  "}
 
-                <IconButton>
+                <IconButton onClick={(event) => deleteFromServer(event, props.user)}>
                     <Delete></Delete>
                 </IconButton>
             </div>

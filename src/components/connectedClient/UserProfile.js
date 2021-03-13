@@ -1,16 +1,21 @@
 import React, {useEffect, useState} from 'react'
 import ConnectedClient from "./ConnectedClient";
 import configJson from "../../assets/config.json";
-import userEvent from "@testing-library/user-event";
-import {Checkbox, FormControlLabel, FormGroup, TextField} from "@material-ui/core";
+import {Button, Checkbox, FormControlLabel, FormGroup, TextField} from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import {Search} from "@material-ui/icons";
 
-function UserProfile() {
+
+
+function UserProfile(props) {
+    const [number, setNumber] = useState(0);
     const [checked, setChecked] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [value, setValue] = useState("")
     useEffect(() => {
+
         const requestOptions = {
             method: 'GET'
         };
@@ -32,24 +37,82 @@ function UserProfile() {
 
     function handleChanged(event) {
         setValue(event.target.value);
-        if (event.target.value === "") {
-            setFilteredUsers(allUsers);
-            return;
-        }
-        let filterUsers = allUsers.filter(filteredUser => {
-            return filteredUser.name.toLowerCase().includes(event.target.value.toLowerCase());
-
-        });
-        setFilteredUsers(filterUsers);
     }
 
     function handleChange(event) {
         setChecked(event.target.checked);
-        let filterUsers = allUsers.filter(filteredUser => {
-            return filteredUser.isAdmin === event.target.checked;
+    }
 
-        });
-        setFilteredUsers(filterUsers);
+    function deleteUser(user) {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('token')
+            }
+        };
+        fetch(configJson.SERVER_URL + "api/users/" + user._id, requestOptions)
+            .then(
+                (result) => {
+                    let newItems = allUsers;
+                    let place = -1;
+                    newItems.forEach((item, index) => {
+                        if (item._id === user._id) {
+                            place = index;
+                            return;
+                        }
+                    })
+                    if (place !== -1) {
+                        newItems.splice(place, 1);
+                        setAllUsers([...newItems]);
+                    }
+
+                    let newFilteredItems = filteredUsers;
+                    let placeFiltered = -1;
+                    newFilteredItems.forEach((item, index) => {
+                        if (item._id === user._id) {
+                            placeFiltered = index;
+                            return;
+                        }
+                    })
+                    if (place !== -1) {
+                        newFilteredItems.splice(place, 1);
+                        setFilteredUsers([...newFilteredItems]);
+                    }
+
+                },
+                (error) => {
+                    alert("error")
+                }
+            )
+    }
+
+    function handleNumberChanged(event) {
+        setNumber(event.target.value);
+    }
+
+    function filterByParams(event, value, number, checked) {
+        const requestOptions = {
+            method: 'POST',
+            headers:  {'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('token')
+            },
+            body: JSON.stringify({name: value, recipeNumber: number ? number : -1, isAdmin: checked})
+        };
+        fetch(configJson.SERVER_URL + "api/users/byFilter", requestOptions)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    console.log(result);
+                    if (result) {
+                        setFilteredUsers(result);
+                    }
+                },
+                (error) => {
+                    setIsLoaded(true);
+                }
+            )
+
     }
 
     return (
@@ -64,13 +127,30 @@ function UserProfile() {
                             label="isAdmin"
                         />
                     </FormGroup>
+                    <TextField
+                        id="standard-number"
+                        label="Number"
+                        type="number"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        value={number}
+                        onChange={handleNumberChanged}
+                    />
+                    <Button variant="contained" color="primary" onClick={(event) => {
+                        filterByParams(event, value, number, checked)
+                    }}>
+                        <IconButton>
+                            <Search/>
+                        </IconButton>
+                    </Button>
                 </div>
                 <div className="row">
                     {
                         filteredUsers.map((user, i) => {
                             return (
                                 <div className="col-md-4">
-                                    <ConnectedClient user={user}/>
+                                    <ConnectedClient user={user} deleteUser={deleteUser}/>
                                 </div>
                             )
                         })

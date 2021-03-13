@@ -115,8 +115,13 @@ export default function Recipes() {
                                         R
                                     </Avatar>
                                 }
+                                action={
+                                    <IconButton aria-label="delete recipe" edge="end" onClick={(event)=> {handleDelete(event, recipe)}}>
+                                        <Delete/>
+                                    </IconButton>
+                                }
                                 title={recipe.name}
-                                subheader={recipe.author}
+                                subheader={users.filter(value => value._id === recipe.author)[0].name}
                             />
                             <CardMedia
                                 className={classes.media}
@@ -138,18 +143,13 @@ export default function Recipes() {
                             </CardContent>
                             <CardContent>
                                 <Typography paragraph>Instructions:</Typography>
-                                {recipe.instructions.map(instruction => (
+                                {recipe.instructions.split("\n").map(instruction => (
                                         <Typography variant="body2" color="textSecondary" component="p">
                                             {instruction}
                                         </Typography>
                                     )
                                 )}
                             </CardContent>
-                            <CardActions disableSpacing>
-                                <IconButton aria-label="delete recipe" edge="end" onClick={(event)=> {handleDelete(event, recipe)}}>
-                                    <Delete/>
-                                </IconButton>
-                            </CardActions>
                         </Card>
                     </Grid>
                 ))

@@ -45,7 +45,9 @@ export default function Categories() {
     function addToServer(cat) {
         const requestOptions = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('token')
+            },
             body: JSON.stringify({name: cat.name})
         };
         fetch(configJson.SERVER_URL + "api/categories", requestOptions)
@@ -62,7 +64,6 @@ export default function Categories() {
     }
 
     function handleSubmit(event) {
-        alert('A name was submitted: ' + value);
         let newItems = categories;
         let cat = {name: value};
         newItems.push(cat);
@@ -75,13 +76,14 @@ export default function Categories() {
     function deleteFromServer(cat) {
         const requestOptions = {
             method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json',
+                      'x-auth-token': localStorage.getItem('token')
+            },
             body: JSON.stringify({_id: cat._id})
         };
         fetch(configJson.SERVER_URL + "api/categories", requestOptions)
             .then(
                 (result) => {
-                    alert("saved")
                 },
                 (error) => {
                     alert("error")
@@ -113,6 +115,23 @@ export default function Categories() {
     } else {
         return (
             <List dense={dense}>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <Add />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText>
+                        <form onSubmit={handleSubmit}>
+                            <TextField id="standard-basic" label="Add Category" value={value} onChange={handleChanged} />
+                            <Button variant="contained" color="primary" type="submit">
+                                <IconButton>
+                                    <Add />
+                                </IconButton>
+                            </Button>
+                        </form>
+                    </ListItemText>
+                </ListItem>
                 { categories.map(item => (
                     <ListItem>
                         <ListItemAvatar>
@@ -130,23 +149,6 @@ export default function Categories() {
                         </ListItemSecondaryAction>
                     </ListItem>
                 ))}
-                <ListItem>
-                    <ListItemAvatar>
-                        <Avatar>
-                            <Add />
-                        </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText>
-                        <form onSubmit={handleSubmit}>
-                        <TextField id="standard-basic" label="Add Category" value={value} onChange={handleChanged} />
-                            <Button variant="contained" color="primary" type="submit">
-                                <IconButton>
-                                    <Add />
-                                </IconButton>
-                            </Button>
-                        </form>
-                    </ListItemText>
-                </ListItem>
             </List>
         );
     }

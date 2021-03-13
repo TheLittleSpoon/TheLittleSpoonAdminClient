@@ -3,35 +3,8 @@ import {Link, NavLink} from "react-router-dom";
 import io from "socket.io-client";
 import configJson from "../../assets/config.json";
 
-let socket = io(configJson.SERVER_URL).connect();
 
-
-function Sidebar() {
-    useEffect(() => {
-        socket.on('connect', () => {
-            console.log("conneceted");
-            setConnected(true);
-        });
-
-        socket.on('joined', (users) => {
-            console.log(users)
-        })
-
-        socket.on('disconnectedUser', (users) => {
-            console.log(users)
-        })
-
-        socket.on('disconnect', (reason) => {
-            setConnected(false);
-
-            if (reason === 'io server disconnect') {
-                // the disconnection was initiated by the server, you need to reconnect manually
-                socket.connect();
-            }
-            // else the socket will automatically try to reconnect
-        });
-    });
-    const [connected, setConnected] = useState(false);
+function Sidebar(props) {
     return <div className="sidebar">
         <div className="sidebar-wrapper">
             <div className="logo">
@@ -40,7 +13,10 @@ function Sidebar() {
                 </Link>
                 <center>
                     <div className="connection">
-                        {connected ? "Connected To Server" : "Not connected to server"}
+                        {props.connected ? "Connected To Server" : "Not connected to server"}
+                    </div>
+                    <div className="connection">
+                        connected users number: {props.connectedUserNumber}
                     </div>
                 </center>
             </div>
